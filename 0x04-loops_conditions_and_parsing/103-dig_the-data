@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# grp visitors by ip and http
+awk '{print $1" "$9}' < apache-access.log | sort | uniq -c | sort -r
