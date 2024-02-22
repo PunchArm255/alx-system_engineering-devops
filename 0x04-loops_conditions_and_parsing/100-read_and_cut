@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# this script is basically cat /etc/passwd
+while read -r line
+do
+	username=$(echo "$line" | cut -d ':' -f 1)
+	id=$(echo "$line" | cut -d ':' -f 3)
+	home=$(echo "$line" | cut -d ':' -f 6)
+	echo "$username:$id:$home"
+done < /etc/passwd
