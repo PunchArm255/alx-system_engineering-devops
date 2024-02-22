@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# FizzBuzz lol help
+for (( i=1; i<=100; i++ ))
+do
+	rem1=$(( i%3 ))
+	rem2=$(( i%5 ))
+	if [ "$rem1" -eq 0 ] && [ "$rem2" -eq 0 ]
+	then
+		echo "FizzBuzz"
+	elif [ "$rem1" -eq 0 ]
+	then
+		echo "Fizz"
+	elif [ "$rem2" -eq 0 ]
+	then
+		echo "Buzz"
+	else
+		echo "$i"
+	fi
+done
