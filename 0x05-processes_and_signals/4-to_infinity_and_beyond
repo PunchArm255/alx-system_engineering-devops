@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 # prints text while sleeping time is on
-i=1
-while [ "$i" -eq 1 ]
+while true
 do
 	echo "To infinity and beyond"
-	echo $$
 	sleep 2
 done
