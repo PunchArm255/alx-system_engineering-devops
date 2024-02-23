@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# why u no love me
+trap "echo 'Y U no love me?!'" SIGINT
+trap "echo 'I hate the kill command'; sudo rm /var/run/myscript.pid; exit" SIGTERM
+trap "sudo rm /var/run/myscript.pid; exit" SIGQUIT
+
+sudo touch /var/run/myscript.pid
+i=1
+while [ "$i" -eq 1 ]
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
