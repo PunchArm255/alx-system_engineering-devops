@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# list running processes with 'bash' word
+# shellcheck disable=SC2009
+ps axu --forest | grep bash
