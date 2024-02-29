@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This dood stalks port 98 on localhost lmao
+
+nc -l 98
