@@ -1,1 +1,25 @@
 https://drive.google.com/file/d/1XowlEVJNS5M5oi-T5AidP2wRyl5qNtlD/view?usp=sharing
+
+What is the function of a server?
+A server serves as a program or device delivering services to another program and its user, commonly referred to as the client.
+
+What is the purpose of a domain name?
+It's utilized to identify and link to websites and various Internet Protocol (IP) addresses.
+
+Which type of DNS record does www.foobar.com belong to?
+It belongs to an A record.
+
+What is the responsibility of a web server?
+To store, process, and provide requested information or webpages to end users.
+
+What does an application server do?
+It furnishes a dedicated environment for the operation and management of applications.
+
+How does the server communicate with the user's computer requesting the website?
+Through the HTTP protocol.
+
+Regarding infrastructure, what is the issue with SPOF?
+If a single point of failure occurs, it could result in significant downtime for the entire system.
+
+What problems arise during maintenance, such as when deploying new code and requiring a web server restart?
+It can lead to downtime, resulting in loss of revenue and productivity.
