@@ -1,0 +1,20 @@
+https://drive.google.com/file/d/1vYvL7MQrexE3-2J8xWPv_EsCYRramGaE/view?usp=sharing
+
+
+The firewall:
+- The firewall implements Access Control, Packet Filtering, Network Address Translation (NAT), and Intrusion Prevention and Detection.
+
+Reasons for serving traffic over HTTPS:
+- HTTPS ensures Data Confidentiality, Data Integrity, Authentication and Trust, Protection Against Interception and Manipulation, and Compliance with Regulatory Requirements.
+
+Purpose of monitoring:
+- Monitoring is employed to analyze server performance and operations, gauge overall health, and notify administrators of any deviations from expected performance.
+
+Challenges with terminating SSL at the load balancer level:
+- Terminating SSL at the load balancer leaves the traffic between the load balancer and the web servers unencrypted, potentially exposing sensitive data.
+
+Issues with having only one MySQL server capable of accepting writes:
+- Relying on a single MySQL server for write operations poses a risk; hardware failure, software errors, or other issues could render the server unavailable, disrupting service and risking data loss.
+
+Concerns regarding servers with identical components (database, web server, and application server):
+- Homogeneous server setups may lack flexibility to accommodate varying workload demands or scaling requirements. Managing such environments can become complex, involving challenges in configuration management, software updates, and troubleshooting.
