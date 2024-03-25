@@ -1,1 +1,19 @@
 https://drive.google.com/file/d/1EsWbUUNf4UPZq1-YkbXsk-6CWyj6afQh/view?usp=sharing
+
+
+Load Balancer:
+- HAProxy load balancer utilizes the Round Robin distribution algorithm to manage connections between clients and applications.
+
+Active-Active or Active-Passive setup for load balancer:
+- The choice between Active-Active and Active-Passive setups depends on the specific system requirements. Active-Active configuration suits high-traffic environments with demanding performance needs, while Active-Passive configuration is preferred for prioritizing high availability and fault tolerance.
+
+How does a database Primary-Replica (Master-Slave) cluster operate?
+- In a Primary-Replica setup, one server is designated as the Primary server, responsible for write operations, while the other server acts as a Replica, maintaining data consistency and serving as a read replica to enhance read scalability.
+
+What distinguishes the Primary node from the Replica node concerning application functionality?
+- The Primary node manages write operations and ensures data consistency, whereas Replica nodes function as read replicas, enhancing read scalability and relieving the Primary node of read traffic.
+
+Infrastructure issues:
+- Single Points of Failure (SPOFs) can manifest across various infrastructure components, encompassing hardware, software, network, and architecture.
+- Security vulnerabilities arise from the lack of SSL encryption for transmitted data, enabling potential network eavesdropping by hackers. Additionally, the absence of a firewall across servers impedes the ability to block unauthorized IPs.
+- Monitoring deficiency leaves servers untracked, preventing insights into their operational status and performance.
