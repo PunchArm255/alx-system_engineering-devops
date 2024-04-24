@@ -1,30 +1,10 @@
 #!/usr/bin/env bash
-# Configure nginx server to have custom 404 page
-
-apt-get update
-apt-get install -y nginx
-
-mkdir /etc/nginx/html
-touch /etc/nginx/html/index.html
-echo "Hello World!" > /etc/nginx/html/index.html
-touch /etc/nginx/html/404.html
-echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
-
-printf %s "server {
-    listen 80;
-    listen [::]:80 default_server;
-    root   /etc/nginx/html;
-    index  index.html index.htm;
-
-    location /redirect_me {
-	return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-    }
-
-    error_page 404 /404.html;
-    location /404 {
-    root /etc/nginx/html;
-    internal;
-    }
-}" > /etc/nginx/sites-available/default
-
-service nginx start
+# This script configures Nginx on a server
+# Configs: listen on port 80, redirect a page & return 'Hello World!' at /
+apt-get update -y
+apt-get install nginx -y
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+sed -i '/^\tserver_name _.*/a \\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" > /var/www/html/error404.html
+sed -i '/^\tserver_name _.*/a \\terror_page 404 /error404.html;' /etc/nginx/sites-available/default
+service nginx restart
