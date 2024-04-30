@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 # This scripty configs Nginx on server
-# Configs: listen on port 80, add HTTP custom header
-# return 'Hello World!' at /
 apt-get update -y
 apt-get install nginx -y
 echo 'Hello World!' > /var/www/html/index.nginx-debian.html
