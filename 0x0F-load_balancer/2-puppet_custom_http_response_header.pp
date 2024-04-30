@@ -22,7 +22,7 @@ command => '/bin/sed -i "/^\tserver_name _.*/a \\\trewrite ^/redirect_me https:/
 
 file {'/var/www/html/error404.html':
 ensure  => present,
-content => "Ceci n'est pas une page\n"
+content => "this page doesn't exist\n"
 }
 
 exec {'error404':
