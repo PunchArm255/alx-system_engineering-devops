@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Show info about subdomains
+get_record () {
+	dig "$1" | grep -A1 "ANSWER SECTION" | tail -n -1 | awk '{print $4}'
+}
+get_IP () {
+	dig "$1" | grep -A1 "ANSWER SECTION" | tail -n -1 | awk '{print $5}'
+}
+
+subdomain_info () {
+	record=$( get_record "$2"."$1" )
+	IP=$( get_IP "$2"."$1" )
+	echo The subdomain "$2" is a "$record" record and points to "$IP"
+}
+
+display_info () {
+	if [ "$2" ]
+	then
+		subdomain_info "$1" "$2"
+	else
+		subdomain_info "$1" www
+		subdomain_info "$1" lb-01
+		subdomain_info "$1" web-01
+		subdomain_info "$1" web-02
+	fi
+}
+
+display_info "$1" "$2"
