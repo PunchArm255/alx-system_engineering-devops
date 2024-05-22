@@ -1,40 +1,30 @@
 #!/usr/bin/python3
-"""
-This script displays user's tasks using {JSON} Placeholder REST API
-"""
+'''Gathers data from an API and exports it to a CSV file.
+'''
+import re
+import requests
+import sys
 
 
-def export_json(user, tasks):
-    """
-    Export TODO list into JSON file
-    """
-    import json
-
-    infos = []
-    for task in tasks:
-        task_info = {
-            'task': task.get('title'),
-            'completed': task.get('completed'),
-            'username': user.get('username'),
-        }
-        infos.append(task_info)
-    content = {str(user.get('id')): infos}
-
-    file_name = "{}.json".format(user.get('id'))
-    with open(file_name, 'w', encoding='UTF8') as f:
-        json.dump(content, f)
+API_URL = 'https://jsonplaceholder.typicode.com'
+'''The API's URL.'''
 
 
-def main():
-    """
-    Gather all tasks of an employee based on ID in JSON format
-    using a REST API
-    """
-    import requests
-    import sys
-
-    user_id = int(sys.argv[1])
-    user = requests.get('https://jsonplaceholder.typicode.com/users/' +
-                        '{}'.format(user_id))
-    todos = requests.get('https://jsonplaceholder.typicode.com/todos' +
-                  
+if __name__ == '__main__':
+    if len(sys.argv) > 1:
+        if re.fullmatch(r'\d+', sys.argv[1]):
+            id = int(sys.argv[1])
+            user_res = requests.get('{}/users/{}'.format(API_URL, id)).json()
+            todos_res = requests.get('{}/todos'.format(API_URL)).json()
+            user_name = user_res.get('username')
+            todos = list(filter(lambda x: x.get('userId') == id, todos_res))
+            with open('{}.csv'.format(id), 'w') as file:
+                for todo in todos:
+                    file.write(
+                        '"{}","{}","{}","{}"\n'.format(
+                            id,
+                            user_name,
+                            todo.get('completed'),
+                            todo.get('title')
+                        )
+                    )
